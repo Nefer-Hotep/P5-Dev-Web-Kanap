@@ -1,7 +1,7 @@
 // Créer une variable de l'emplacement actuel de l'Url(search la partie après le ?)
 const urlSearch = new URLSearchParams(window.location.search);
 
-// Get lit l'id 
+// Créer une constante Get qui lit l'id 
 const id = urlSearch.get("id");
 
 // Récupère les données de l'API de l'id choisi
