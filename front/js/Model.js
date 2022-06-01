@@ -1,12 +1,21 @@
 class Model {
   // Récupère les données de l'API
-  async fetchKanap() {
+  async getListKanap() {
     return fetch("http://localhost:3000/api/products")
       .then((res) => res.json())
       .then((data) => {
+        // console.log(data);
         return data;
       });
+  }
 
-    // console.log(kanaps);
+  // Récupère les données de l'API de l'id choisi
+  async getKanap(id) {
+    return fetch(`http://localhost:3000/api/products/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        return data;
+      });
   }
 }
