@@ -19,30 +19,12 @@ class KanapView {
     const itemDescription = document.getElementById("description");
     itemDescription.textContent = kanap.description;
 
-    // Appel les options de couleur
+    // Appel les options de couleur puis créer une boucle qui céer les options
     let selectColors = document.getElementById("colors");
-    // console.log(selectColors);
+    let colors = kanap.colors;
 
-    // console.log(kanap.colors);
-
-    // kanap.colors.forEach((color) => {
-    //   console.log(color);
-
-    //   const createOptionColor = document.createElement("option");
-    //   // console.log(createOptionColor);
-
-    //   createOptionColor.textContent = `${color}`;
-    //   createOptionColor.value = `${color}`
-      
-    //   // selectColors.appendChild("createOptionColor");
-    // });
-
-    let optionColor = []
-
-    optionColor.forEach((value,text) => {
-
-      optionColor[text] = new Option(value, text)
-    })
-    console.log(optionColor);
+    for (let i = 0; i < colors.length; i++) {
+      selectColors.add(new Option(colors[i], colors[i]));
+    }
   }
 }
