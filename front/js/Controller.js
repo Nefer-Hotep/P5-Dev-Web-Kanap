@@ -1,3 +1,5 @@
+// Controller : lie l'utilisateur et le system, il gère les interactions
+
 class Controller {
   // Affiche des données reçu de tous les canapés
   async kanapsDisplay() {
@@ -11,11 +13,11 @@ class Controller {
 
   // Affiche les données d'un seule canapé
   async kanapDisplay() {
-     // Créer une variable de l'emplacement actuel de l'Url(search la partie après le ?)
-     const urlSearch = new URLSearchParams(window.location.search);
+    // Créer une variable de l'emplacement actuel de l'Url(search la partie après le ?)
+    const urlSearch = new URLSearchParams(window.location.search);
 
-     // Créer une constante Get qui lit l'id
-     const id = urlSearch.get("id");
+    // Créer une constante Get qui lit l'id
+    const id = urlSearch.get("id");
 
     let model = new Model();
     let kanap = await model.getKanap(id);
@@ -26,3 +28,13 @@ class Controller {
     // console.log(kanapView);
   }
 }
+
+const input = document.getElementById("addToCart")
+
+input.addEventListener("click", (e) => {
+  
+  let cart = new Cart()
+  
+  console.log(cart);
+  cart.save()
+})

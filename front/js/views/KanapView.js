@@ -1,3 +1,5 @@
+// View : Créer la représentation visuel
+
 class KanapView {
   render(kanap) {
     // Appel l'image et créer une balise <img>

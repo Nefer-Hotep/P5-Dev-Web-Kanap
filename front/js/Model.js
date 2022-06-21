@@ -1,3 +1,5 @@
+// Model : gère les données d'une application (l'ajout, la modification, la suppression...)
+
 class Model {
   // Récupère les données de l'API
   async getListKanap() {
@@ -22,6 +24,7 @@ class Model {
 
 class Cart {
   constructor() {
+  // Récupère le panier du local storage
     let cart = localStorage.getItem("cart");
     if (cart == null) {
       this.cart = [];
@@ -30,10 +33,12 @@ class Cart {
     }
   }
 
+  // Sauvegarde le panier dans le local storage
   save() {
     localStorage.setItem("cart", JSON.stringify(this.cart));
   }
 
+  // Ajout un produit dans le panier
   add(product) {
     let foundPoduct = this.cart.find((p) => p.id == product.id);
 
@@ -46,11 +51,13 @@ class Cart {
     this.save();
   }
 
+  // Supprime un produit du panier
   remove(product) {
     this.cart = this.cart.filter((p) => p.id != product.id);
     this.save(cart);
   }
 
+  // Change une quantité d'un produit du panier
   changeQuantity(product, quantity) {
     let foundPoduct = this.cart.find((p) => p.id == product.id);
 
@@ -64,14 +71,16 @@ class Cart {
     }
   }
 
+  // Calcule la quantité total de produit dans le panier
   getNumberProduct() {
     let number = 0;
     for (let product of this.cart) {
-      number = +product.quantity;
+      number += product.quantity;
     }
     return number;
   }
 
+  // Calcule le prix total du panier
   getTotalPrice() {
     let total = 0;
     for (let product of this.cart) {
