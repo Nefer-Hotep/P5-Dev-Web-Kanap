@@ -78,7 +78,7 @@
               </div>
 
               <div class="item__content__addButton">
-                <button id="addToCart">Ajouter au panier</button>
+                <button id="addToCart" onclick="controller.addItemToCart()">Ajouter au panier</button>
               </div>
 
             </div>
@@ -112,7 +112,8 @@
     </footer>
 
     <script src="../js/views/KanapView.js"></script>
-    <script src="../js/Model.js"></script>
+    <script src="../js/Model/Model.js"></script>
+    <script src="../js/Model/Cart.js"></script>
     <script src="../js/Controller.js"></script>
     <script>
       // Affiche les données du controller
